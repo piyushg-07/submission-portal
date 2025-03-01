@@ -78,6 +78,10 @@ Access the live demo of the Assignment Submission Portal Backend [submission-por
   - Environment variables for easy configuration.
   - Ready for future enhancements like notifications, deadlines, and soft deletes.
 
+- **Advanced Features**  
+     - Implement a notification system for students when their assignment is reviewed.
+    - Add a soft delete feature for assignments instead of hard deleting them.
+
 ## 2. Installation and Setup
 
 ### 2.1 Prerequisites
