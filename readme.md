@@ -48,37 +48,35 @@ Access the live demo of the Assignment Submission Portal Backend [submission-por
 
 - **User Registration and Authentication**
   - Students can sign up and log in using their email and password.
-  - Passwords are securely hashed using bcrypt.
-  - JWT-based authentication is implemented for securing API endpoints.
+  - Secure password hashing with bcrypt.
+  - JWT-based authentication to protect API routes.
 
 - **Role-Based Access Control (RBAC)**
-  - Differentiated roles for students and admins.
-  - Admin-specific endpoints allow for assignment review and management.
-  - Manual role updates via the database enable admin privileges.
+  - Separate roles for students and administrators.
+  - Admin endpoints for reviewing and managing assignments.
+  - Manual role updates in the database for admin privileges.
 
 - **Assignment Management**
-  - Students can upload assignments using secure file uploads (handled by multer).
-  - Assignments are stored in a local folder (or can be configured for AWS S3).
-  - Each assignment is tracked with a status (Pending, Approved, Rejected).
-  - Students can view the status of their submissions.
+  - Students can upload assignments via secure file uploads (using multer).
+  - Assignments are stored locally (configurable for cloud storage like AWS S3).
+  - Each submission is tracked with a status (Pending, Approved, Rejected).
+  - **Submission Deadlines:** Admins can set deadlines, and submissions are validated against these deadlines.
+  - **Soft Delete:** Instead of permanently deleting assignments, a soft delete flag is used so records are retained in the database.
 
-- **Admin Dashboard and Management**
+- **Admin Dashboard**
   - Admins can view all student assignments.
-  - Ability to filter assignments by status (Pending, Approved, Rejected).
-  - Admins can approve or reject assignments and provide feedback.
-
+  - Ability to filter assignments by status.
+  - Admins can update assignment statuses and provide feedback.
+  - **Notification System:** Students receive notifications when their assignments are reviewed.
+  
 - **Security Best Practices**
-  - JWT authentication for secure access to API routes.
-  - Input validation and global error handling to ensure reliability.
-  - CORS and Helmet are used to secure HTTP headers.
-  - Rate limiting is implemented to protect against abuse.
+  - Use of JWT, CORS, Helmet, and rate limiting to secure the application.
+  - Structured error handling and input validation.
 
 - **Scalability and Maintainability**
-  - Structured project architecture with clear separation (controllers, routes, models, middlewares).
-  - Environment variables are used for configuration.
-  - The application is ready for future enhancements (e.g., notifications, submission deadlines, soft deletes).
-
----
+  - Modular project architecture (controllers, routes, models, middlewares).
+  - Environment variables for easy configuration.
+  - Ready for future enhancements like notifications, deadlines, and soft deletes.
 
 ## 2. Installation and Setup
 

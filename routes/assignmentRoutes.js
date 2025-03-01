@@ -25,4 +25,8 @@ router.get('/my', authenticate, authorizeRoles('student'), assignmentController.
 router.get('/', authenticate, authorizeRoles('admin'), assignmentController.getAllAssignments);
 router.patch('/:id', authenticate, authorizeRoles('admin'), assignmentController.updateAssignment);
 
+// Soft Delete Route (Accessible by owner or admin)
+// Here you can add additional checks in the controller to ensure that only the owner or admin can perform the soft delete.
+router.delete('/:id', authenticate, assignmentController.softDeleteAssignment);
+
 module.exports = router;

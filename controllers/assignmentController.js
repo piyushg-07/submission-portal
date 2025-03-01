@@ -50,9 +50,26 @@ const updateAssignment = async (req, res, next) => {
   }
 };
 
+// Soft Delete Assignment Controller Function
+const softDeleteAssignment = async (req, res, next) => {
+    try {
+      const assignmentId = req.params.id;
+      // Optionally check if the requester is the owner or an admin.
+      await Assignment.softDeleteAssignment(assignmentId);
+      return res.status(200).json({ message: 'Assignment deleted (soft delete)' });
+    } catch (err) {
+      next(err);
+    }
+  };
+  
+
+
+
+
 module.exports = {
   uploadAssignment,
   getStudentAssignments,
   getAllAssignments,
-  updateAssignment
+  updateAssignment,
+  softDeleteAssignment
 };

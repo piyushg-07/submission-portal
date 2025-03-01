@@ -33,9 +33,21 @@ const updateAssignmentStatus = async (assignmentId, status, feedback = null) => 
   return result;
 };
 
+// Instead of hard delete, create a soft delete function:
+const softDeleteAssignment = async (assignmentId) => {
+    const [result] = await pool.query(
+      'UPDATE assignments SET is_deleted = TRUE WHERE id = ?',
+      [assignmentId]
+    );
+    return result;
+  };
+
+  
+
 module.exports = {
   createAssignment,
   getAssignmentsByStudent,
   getAllAssignments,
-  updateAssignmentStatus
+  updateAssignmentStatus,
+  softDeleteAssignment
 };
